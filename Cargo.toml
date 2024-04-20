@@ -1,0 +1,16 @@
+[package]
+name = "npm1300"
+version = "0.0.0"
+edition = "2021"
+authors = ["Tobias Breitwieser <tobias@breitwieser.biz>"]
+repository = "https://github.com/jernoxit/npm1300-rs"
+exclude = [".gitignore", ".gitattributes", ".github"]
+documentation = "https://docs.rs/npm1300"
+description = "Rust implementation for interfacing with Nordic nPM1300"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal-async = "1"
