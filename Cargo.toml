@@ -9,8 +9,16 @@ documentation = "https://docs.rs/npm1300"
 description = "Rust implementation for interfacing with Nordic nPM1300"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
+categories = ["embedded", "hardware-support", "no-std", "asynchronous"]
+keywords = ["embedded", "async", "npm1300", "embedded-hal"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["defmt"]
+defmt = ["dep:defmt", "embedded-hal-async/defmt-03"]
+log = []
+
 [dependencies]
 embedded-hal-async = "1"
+defmt = { version = "0.3.6" , optional = true }
