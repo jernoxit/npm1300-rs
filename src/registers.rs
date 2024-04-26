@@ -16,7 +16,7 @@ enum Instances {
 
 #[repr(u16)]
 pub enum SysregRegs {
-    TASKUPDATEILIMSW =  Instances::VBUSIN as u16 + 0x00,
+    TASKUPDATEILIMSW = Instances::VBUSIN as u16 + 0x00,
     VBUSINILIM0 = Instances::VBUSIN as u16 + 0x01,
     VBUSSUSPEND = Instances::VBUSIN as u16 + 0x03,
     USBCDETECTSTATUS = Instances::VBUSIN as u16 + 0x05,
