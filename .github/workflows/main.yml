@@ -22,7 +22,9 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --all --features "defmt" --target thumbv6m-none-eabi
+#          args: --all --features "defmt" --target thumbv6m-none-eabi
+          args: --features "defmt" --target thumbv6m-none-eabi
+
 
       - name: Test
         uses: actions-rs/cargo@v1
