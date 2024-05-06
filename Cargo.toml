@@ -21,4 +21,5 @@ log = []
 
 [dependencies]
 embedded-hal-async = "1"
+embedded-hal = "1"
 defmt = { version = "0.3.6" , optional = true }
