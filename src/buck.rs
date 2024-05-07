@@ -1,14 +1,12 @@
-
-
 #[derive(PartialEq, Debug)]
 struct Voltage(u8);
 
 impl Voltage {
     pub fn from_millivolts(millivolts: u16) -> Self {
         if millivolts < 1100 {
-            return Voltage(0u8)
+            return Voltage(0u8);
         } else if millivolts > 3300 {
-            return Voltage(24u8)
+            return Voltage(24u8);
         }
         return Voltage((millivolts / 100 - 10) as u8);
     }
@@ -35,8 +33,8 @@ pub enum ModeControl {
 }
 
 pub enum OnOffControl {
-    Software,
     Vset,
+    Software,
     GPIO0,
     GPIO1,
     GPIO2,
@@ -55,7 +53,6 @@ pub enum RetentionControl {
 
 struct BuckConfig {
     pub enabled: bool,
-    pub is_software_set: bool,
     pub auto_cap_discharge: bool,
     pub output_voltage: Voltage,
     pub retention_voltage: Voltage,
@@ -68,12 +65,11 @@ impl Default for BuckConfig {
     fn default() -> Self {
         BuckConfig {
             enabled: false,
-            is_software_set: false,
             auto_cap_discharge: false,
             output_voltage: Voltage(0),
             retention_voltage: Voltage(0),
             retention_control: RetentionControl::Off,
-            on_off_control: OnOffControl::Software,
+            on_off_control: OnOffControl::Vset,
             mode_control: ModeControl::Auto,
         }
     }
