@@ -28,6 +28,7 @@ enum Error {
 #[non_exhaustive]
 enum InterruptSource {
     ADC,
+    UNKNOWN,
 }
 
 struct NRF1300<I2C, SHPHLD, INTERRUPT>
@@ -90,6 +91,7 @@ where
     }
 
     async fn get_interrupt_source(&mut self) -> Result<InterruptSource, Error> {
+        return Ok(InterruptSource::UNKNOWN);
         todo!("Implement this function")
     }
 }
