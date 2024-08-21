@@ -1,11 +1,11 @@
 #![no_std]
 
 use core::cell::RefCell;
+use embassy_sync::blocking_mutex::raw::RawMutex;
+use embassy_sync::mutex::Mutex;
 use embedded_hal_async::digital::Wait;
 use embedded_hal_async::i2c::Error as I2CHALError;
 use embedded_hal_async::i2c::ErrorKind;
-use embassy_sync::blocking_mutex::raw::RawMutex;
-use embassy_sync::mutex::Mutex;
 
 mod buck;
 mod charger;
@@ -63,10 +63,7 @@ where
 {
     pub async fn new(i2c: I2C, shphld: Option<SHPHLD>, interrupt: Option<INTERRUPT>) -> Self {
         Self {
-            data: Mutex::new(NRF1300Data {
-                i2c,
-                shphld,
-            }),
+            data: Mutex::new(NRF1300Data { i2c, shphld }),
             interrupt: Mutex::new(interrupt),
         }
     }
